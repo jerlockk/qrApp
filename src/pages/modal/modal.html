@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>Scanner</ion-title>
+    <ion-buttons left>
+      <button icon-only ion-button (click)="closeModal();">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div id="scanner"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-buttons margin>
+          <button ion-button large block icon-end color="dark" (click)="scan();">
+            Scan
+            <ion-icon name="qr-scanner"></ion-icon>
+          </button>
+          <button ion-button large block icon-end color="light" (click)="rotateCamera();">
+            Rotate camera
+            <ion-icon name="reverse-camera"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

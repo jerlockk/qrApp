@@ -1,25 +1,23 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+// Provider
+import { HistoryProvider } from "../../providers/history/history";
+import {ScanData} from "../../models/scan-data.model";
 
-/**
- * Generated class for the SavedPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-saved',
   templateUrl: 'saved.html',
 })
 export class SavedPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  history: ScanData[];
+  constructor(private historyProvider: HistoryProvider) {
+    this.history = [];
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SavedPage');
+    this.history = this.historyProvider.sendHistory();
   }
 
+  public openScan(index: number) {
+    this.historyProvider.actionScan(index);
+  }
 }

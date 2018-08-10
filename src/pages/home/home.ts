@@ -1,14 +1,31 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+// plugin cordova
+import { Platform, ModalController} from 'ionic-angular';
+// Pages
+import { ModalPage } from '../index.pages';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController) {
-
+  modalPage: any;
+  constructor(private platform: Platform,
+              private modalCtrl: ModalController) {
+    this.modalPage = ModalPage;
   }
 
+  public scan() {
+    if (!this.platform.is('cordova')) {
+      alert('Platform not accepted');
+      return;
+    }
+    this.showCamera();
+    const modal = this.modalCtrl.create(this.modalPage);
+    modal.present();
+  }
+
+  public showCamera() {
+    (window.document.querySelector('ion-app') as HTMLElement).classList.add('cameraView');
+  }
 }

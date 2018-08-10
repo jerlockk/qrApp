@@ -1,0 +1,26 @@
+page-modal {
+  z-index: -5;
+  position: relative;
+  ion-navbar.toolbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: center;
+    justify-content: center;
+  }
+
+  ion-content {
+    ion-grid.grid {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      justify-content: space-around;
+    }
+    div#scanner {
+      background: transparent none;
+      border: 2px solid lightgrey;
+      height: 40vh;
+      margin: 5vw;
+    }
+  }
+}
