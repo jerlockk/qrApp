@@ -14,7 +14,17 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
 ion-toast {
   margin: 0 auto;
   position: static;
+  text-align: center;
+
+  div.toast-wrapper.toast-middle {
+    background-color: white;
+    div.toast-message {
+      color: black;
+      text-transform: uppercase;
+    }
+  }
 }

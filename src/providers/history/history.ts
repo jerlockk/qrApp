@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 import { ScanData } from '../../models/scan-data.model';
+import { ModalController } from "ionic-angular";
 // Plugin Cordova
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+// Pages
+import { MapPage } from "../../pages/index.pages";
 
 @Injectable()
 export class HistoryProvider {
   readonly _history: ScanData[];
   message: string;
+  mapPage: any;
 
-  constructor(private iab: InAppBrowser) {
+  constructor(private iab: InAppBrowser,
+              private modalCtrl: ModalController) {
     this._history = [];
     this.message = '';
+    this.mapPage = MapPage;
   }
 
   sendHistory(){
@@ -20,7 +26,6 @@ export class HistoryProvider {
   getHistory(text: string) {
     let data = new ScanData(text);
     this._history.unshift(data);
-
     return this.actionScan(0);
   }
 
@@ -28,10 +33,18 @@ export class HistoryProvider {
     let scanData = this._history[index];
     switch (scanData.type) {
       case 'http':
-        this.message = 'Opening browser';
+          this.message = 'Opening browser';
+          setTimeout(() => {
+            this.iab.create(scanData.info, '_system');
+          }, 800);
+        break;
+
+      case 'map':
+        this.message = 'Opening map';
         setTimeout(() => {
-          this.iab.create(scanData.info, '_system');
-          }, 1000);
+          this.modalCtrl.create(this.mapPage, { coords: scanData.info })
+            .present();
+        }, 800);
         break;
 
       default:

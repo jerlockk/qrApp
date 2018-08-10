@@ -11,6 +11,8 @@ import * as pages from '../pages/index.pages'
 import { HistoryProvider } from '../providers/history/history';
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { QRScanner } from "@ionic-native/qr-scanner";
+// Libraries
+import { AgmCoreModule } from "@agm/core";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,10 @@ import { QRScanner } from "@ionic-native/qr-scanner";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA-HXVa2jtkGfKtIJwisxgC46RaWqC1xuI'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

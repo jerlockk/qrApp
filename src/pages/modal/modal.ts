@@ -30,7 +30,12 @@ export class ModalPage {
           this.scanSub = this.qrScanner.scan()
             .subscribe((text: string) => {
               this.historyP.getHistory(text)
-                .then((result: string) => this.showToast(result));
+                .then((result: string) => {
+                  this.showToast(result);
+                });
+                setTimeout(() => {
+                  this.closeModal();
+                }, 800);
             });
           this.qrScanner.show();
         } else {
@@ -43,8 +48,8 @@ export class ModalPage {
   public showToast(message: string): void {
     let toast = this.toastCtrl.create({
       message: message,
-      duration: 2000,
-      position: 'bottom'
+      duration: 1000,
+      position: 'middle'
     });
     toast.present();
   }
