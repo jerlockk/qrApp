@@ -40,14 +40,15 @@ $toast-width: 90%;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #009688,
-  secondary:  #546e7a,
+  primary:    #ebebeb,
+  secondary:  #2e41c2,
   white:      #FFFFFF,
-  light:      #52c7b8,
-  dark:       #00675b
+  light:      #7582dd,
+  dark:       #4d4d4d
 );
 
 $content-ios-transition-background: transparent;
+$background-color: #f8f8f8;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here

@@ -11,6 +11,8 @@ import * as pages from '../pages/index.pages'
 import { HistoryProvider } from '../providers/history/history';
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { QRScanner } from "@ionic-native/qr-scanner";
+import { EmailComposer } from "@ionic-native/email-composer";
+import { Contacts } from "@ionic-native/contacts";
 // Libraries
 import { AgmCoreModule } from "@agm/core";
 
@@ -44,6 +46,8 @@ import { AgmCoreModule } from "@agm/core";
     SplashScreen,
     InAppBrowser,
     QRScanner,
+    Contacts,
+    EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HistoryProvider
   ]

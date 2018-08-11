@@ -1,5 +1,6 @@
 page-modal {
   position: relative;
+
   ion-navbar.toolbar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -18,7 +19,7 @@ page-modal {
     div#scanner {
       background: transparent none;
       border: 2px solid lightgrey;
-      height: 40vh;
+      height: 45vh;
       margin: 5vw;
     }
   }
